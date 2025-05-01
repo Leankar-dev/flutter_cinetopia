@@ -4,6 +4,8 @@ class CustomPrimaryButtonWidget extends StatelessWidget {
   final VoidCallback onTap;
   final String text;
   final Color textColor;
+  final double fontSize;
+  final FontWeight fontWeight;
   final Color backgroundColor;
   final IconData? iconData;
   final Icon? icon;
@@ -14,6 +16,8 @@ class CustomPrimaryButtonWidget extends StatelessWidget {
     required this.onTap,
     required this.text,
     required this.textColor,
+    required this.fontSize,
+    required this.fontWeight,
     required this.backgroundColor,
     this.iconData,
     this.icon,
@@ -25,17 +29,21 @@ class CustomPrimaryButtonWidget extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Ink(
+        padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
         decoration: BoxDecoration(
           color: backgroundColor,
           borderRadius: BorderRadius.circular(50),
         ),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize:
+              MainAxisSize.min, // para o botão não ocupar toda a largura
           children: [
             Text(
               text,
               style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
+                fontSize: fontSize,
+                fontWeight: fontWeight,
                 color: textColor,
               ),
             ),

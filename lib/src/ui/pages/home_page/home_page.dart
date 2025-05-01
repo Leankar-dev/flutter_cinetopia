@@ -26,7 +26,9 @@ class HomePage extends StatelessWidget {
             CustomPrimaryButtonWidget(
               onTap: () {},
               text: 'Quero Começar',
-              textColor: Colors.white,
+              textColor: Color(0xFF1D0E44),
+              fontWeight: FontWeight.bold,
+              fontSize: 20,
               backgroundColor: Color(0xFFB370FF),
               iconData: Icons.arrow_forward,
               iconSize: 20,

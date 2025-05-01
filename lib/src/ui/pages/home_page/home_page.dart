@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cinetopia/src/ui/pages/search_movies_page/search_movies_page.dart';
 import 'package:flutter_cinetopia/src/ui/widgets/custom_primary_button_widget.dart';
 
 class HomePage extends StatelessWidget {
@@ -36,7 +37,14 @@ class HomePage extends StatelessWidget {
               ),
               const SizedBox(height: 24),
               CustomPrimaryButtonWidget(
-                onTap: () {},
+                onTap: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const SearchMoviesPage(),
+                    ),
+                  );
+                },
                 text: 'Quero Começar',
                 textColor: Color(0xFF1D0E44),
                 fontWeight: FontWeight.bold,

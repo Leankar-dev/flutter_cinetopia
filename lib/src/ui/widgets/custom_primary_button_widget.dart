@@ -8,7 +8,6 @@ class CustomPrimaryButtonWidget extends StatelessWidget {
   final FontWeight fontWeight;
   final Color backgroundColor;
   final IconData? iconData;
-  final Icon? icon;
   final double? iconSize;
 
   const CustomPrimaryButtonWidget({
@@ -20,7 +19,6 @@ class CustomPrimaryButtonWidget extends StatelessWidget {
     required this.fontWeight,
     required this.backgroundColor,
     this.iconData,
-    this.icon,
     this.iconSize,
   });
 
@@ -48,7 +46,9 @@ class CustomPrimaryButtonWidget extends StatelessWidget {
               ),
             ),
             const SizedBox(width: 10),
-            Icon(iconData, color: textColor, size: iconSize),
+            iconData != null
+                ? Icon(iconData, color: textColor, size: iconSize)
+                : const SizedBox(),
           ],
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cinetopia/src/ui/widgets/movie_cards_widgets.dart';
 
 class SearchMoviesPage extends StatelessWidget {
   const SearchMoviesPage({super.key});
@@ -6,15 +7,12 @@ class SearchMoviesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('')),
+      // appBar: AppBar(title: const Text('')),
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            const Text(
-              'Tela de busca de filmes',
-              style: TextStyle(fontSize: 20),
-            ),
+            MovieCardsWidgets(),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {

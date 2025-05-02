@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_cinetopia/src/ui/pages/search_movies_page/search_movies_page.dart';
+import 'package:flutter_cinetopia/src/ui/pages/dashboard_page/dashboard_page.dart';
 import 'package:flutter_cinetopia/src/ui/widgets/custom_primary_button_widget.dart';
 
 class HomePage extends StatelessWidget {
@@ -41,7 +41,7 @@ class HomePage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const SearchMoviesPage(),
+                      builder: (context) => const DashboardPage(),
                     ),
                   );
                 },

@@ -6,26 +6,23 @@ class SearchMoviesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      // appBar: AppBar(title: const Text('')),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            MovieCardsWidgets(
-              imageMovie: 'assets/popular.png',
-              titleMovie: 'Titulo Filme',
-              descriptionMovie: 'Descriçao Filme',
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              child: const Text('Voltar para a tela inicial'),
-            ),
-          ],
-        ),
+    return Center(
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          MovieCardsWidgets(
+            imageMovie: 'assets/popular.png',
+            titleMovie: 'Titulo Filme',
+            descriptionMovie: 'Descriçao Filme',
+          ),
+          const SizedBox(height: 100),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            child: const Text('Voltar para a tela inicial'),
+          ),
+        ],
       ),
     );
   }

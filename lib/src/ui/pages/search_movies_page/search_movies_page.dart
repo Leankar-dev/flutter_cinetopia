@@ -12,7 +12,11 @@ class SearchMoviesPage extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            MovieCardsWidgets(),
+            MovieCardsWidgets(
+              imageMovie: 'assets/popular.png',
+              titleMovie: 'Titulo Filme',
+              descriptionMovie: 'Descriçao Filme',
+            ),
             const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () {

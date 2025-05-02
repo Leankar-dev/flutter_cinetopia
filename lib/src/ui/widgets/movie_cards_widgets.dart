@@ -1,7 +1,15 @@
 import 'package:flutter/material.dart';
 
 class MovieCardsWidgets extends StatelessWidget {
-  const MovieCardsWidgets({super.key});
+  final String titleMovie;
+  final String descriptionMovie;
+  final String imageMovie;
+  const MovieCardsWidgets({
+    super.key,
+    required this.titleMovie,
+    required this.descriptionMovie,
+    required this.imageMovie,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -9,13 +17,13 @@ class MovieCardsWidgets extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         Container(
-          width: 64,
-          height: 124,
+          width: 90,
+          height: 120,
           decoration: BoxDecoration(
             color: Color(0xFF000000),
             borderRadius: BorderRadius.circular(8),
             image: DecorationImage(
-              image: Image.asset('assets/movie.png').image,
+              image: Image.asset(imageMovie).image,
               fit: BoxFit.cover,
             ),
           ),
@@ -24,21 +32,21 @@ class MovieCardsWidgets extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(
-              'Título do Filme',
+            Text(
+              titleMovie,
               style: TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w600,
-                color: Color(0xFF000000),
+                fontSize: 18,
+                fontWeight: FontWeight.w700,
+                color: Color(0xFFA5A5A5),
               ),
             ),
-            const SizedBox(height: 4),
-            const Text(
-              'Descrição do filme',
+            const SizedBox(height: 6),
+            Text(
+              descriptionMovie,
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w400,
-                color: Color(0xFF000000),
+                color: Color(0xFFA5A5A5),
               ),
             ),
           ],

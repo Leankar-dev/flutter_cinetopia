@@ -23,7 +23,12 @@ class _DashboardWidgetState extends State<DashboardPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: _screens[_selectedIndex],
+      backgroundColor: Color(0xFF120326),
+      body: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 54, 16, 0),
+        child: _screens[_selectedIndex],
+      ),
+      // body: _screens.elementAt(_selectedIndex),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: _selectedIndex,
         onTap: updateIndex,

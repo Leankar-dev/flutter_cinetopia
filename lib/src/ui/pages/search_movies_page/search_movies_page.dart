@@ -1,29 +1,64 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cinetopia/src/app/services/search_movies_service.dart';
 import 'package:flutter_cinetopia/src/ui/widgets/movie_cards_widgets.dart';
 
 class SearchMoviesPage extends StatelessWidget {
-  const SearchMoviesPage({super.key});
+  final SearchMoviesService searchMoviesService = SearchMoviesService();
+  SearchMoviesPage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          MovieCardsWidgets(
-            imageMovie: 'assets/popular.png',
-            titleMovie: 'Titulo Filme',
-            descriptionMovie: 'Descriçao Filme',
-          ),
-          const SizedBox(height: 100),
-          ElevatedButton(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            child: const Text('Voltar para a tela inicial'),
-          ),
-        ],
-      ),
+    return FutureBuilder(
+      future: searchMoviesService.searchMovies(),
+      builder: (context, snapshot) {
+        if (snapshot.hasData) {
+          return CustomScrollView(
+            slivers: <Widget>[
+              SliverToBoxAdapter(
+                child: Image.asset("assets/movie.png", height: 80, width: 80),
+              ),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 40),
+                  child: Text(
+                    "Filmes populares",
+                    textAlign: TextAlign.center,
+                    style: TextStyle(fontSize: 24, fontWeight: FontWeight.w700),
+                  ),
+                ),
+              ),
+              SliverToBoxAdapter(
+                child: Padding(
+                  padding: const EdgeInsets.only(bottom: 32),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      hintText: "Pesquisar",
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(18),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SliverList.builder(
+                itemBuilder: (_, index) {
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 32),
+                    child: MovieCardsWidgets(
+                      titleMovie: 'Titulo do Filme',
+                      descriptionMovie: 'Descrição do filme',
+                      imageMovie: 'assets/popular.png',
+                    ),
+                  );
+                },
+                itemCount: 10,
+              ),
+            ],
+          );
+        } else {
+          return const Center(child: CircularProgressIndicator());
+        }
+      },
     );
   }
 }

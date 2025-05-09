@@ -1,14 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_cinetopia/src/app/models/movie_model.dart';
 
 class MovieCardsWidgets extends StatelessWidget {
-  final String titleMovie;
-  final String descriptionMovie;
-  final String imageMovie;
+  final MovieModel movie;
+  // final String descriptionMovie;
+  // final MovieModel imageMovie;
   const MovieCardsWidgets({
     super.key,
-    required this.titleMovie,
-    required this.descriptionMovie,
-    required this.imageMovie,
+    required this.movie,
+    // required this.descriptionMovie,
+    // required this.imageMovie,
   });
 
   @override
@@ -23,7 +24,7 @@ class MovieCardsWidgets extends StatelessWidget {
             color: Color(0xFF000000),
             borderRadius: BorderRadius.circular(8),
             image: DecorationImage(
-              image: Image.asset(imageMovie).image,
+              image: NetworkImage(movie.getPosterImage()),
               fit: BoxFit.cover,
             ),
           ),
@@ -33,7 +34,7 @@ class MovieCardsWidgets extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              titleMovie,
+              movie.title,
               style: TextStyle(
                 fontSize: 18,
                 fontWeight: FontWeight.w700,
@@ -42,9 +43,9 @@ class MovieCardsWidgets extends StatelessWidget {
             ),
             const SizedBox(height: 6),
             Text(
-              descriptionMovie,
+              'Lançamento: ${movie.releaseDate}',
               style: TextStyle(
-                fontSize: 14,
+                fontSize: 12,
                 fontWeight: FontWeight.w400,
                 color: Color(0xFFA5A5A5),
               ),

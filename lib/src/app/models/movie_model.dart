@@ -1,5 +1,7 @@
 import 'dart:convert';
 
+import 'package:flutter_cinetopia/src/app/helpers/consts.dart';
+
 class MovieModel {
   final int id;
   final String title;
@@ -14,6 +16,10 @@ class MovieModel {
     required this.releaseDate,
     required this.overview,
   });
+
+  String getPosterImage() {
+    return imageUrlPrefix + imageUrl;
+  }
 
   Map<String, dynamic> toMap() {
     return <String, dynamic>{
